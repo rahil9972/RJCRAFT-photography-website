@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LensCraft Photography Portfolio</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+        }
+        header {
+            background: #000;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        nav {
+            text-align: center;
+            background: #333;
+            padding: 12px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        section {
+            padding: 40px;
+        }
+        h2 {
+            color: #222;
+        }
+        .gallery-section {
+            margin-bottom: 40px;
+        }
+        .gallery-title {
+            background: #000;
+            color: white;
+            padding: 10px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        /* Image grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+        .grid img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 5px;
+            border: 3px solid black;
+        }
+        /* Booking Section */
+        .booking-form {
+            background: white;
+            padding: 25px;
+            border-radius: 5px;
+            width: 350px;
+            border-left: 5px solid black;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+        }
+        button {
+            background: black;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            margin-top: 12px;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>📸 RJCRAFT Photography</h1>
+    <p>Capturing moments that last forever</p>
+</header>
+
+<nav>
+    <a href="#portraits">Portraits</a>
+    <a href="#nature">Nature</a>
+    <a href="#events">Events</a>
+    <a href="#book">Book a Session</a>
+</nav>
+
+<!-- PORTRAITS GALLERY -->
+<section id="portraits" class="gallery-section">
+    <h2 class="gallery-title">Portrait Photography</h2>
+
+    <div class="grid">
+        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e" alt="Portrait 1">
+        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2" alt="Portrait 2">
+        <img src="https://tse4.mm.bing.net/th/id/OIP.kVUm8yuWuijHXyzaQwTUaAHaGt?pid=Api&P=0&h=180" alt="Portrait 3">
+        <img src="https://tse3.mm.bing.net/th/id/OIP.IaFZI98__CkQ0FNbT2ITZwHaEK?pid=Api&P=0&h=180" alt="Portrait 4">
+    </div>
+</section>
+
+<!-- NATURE GALLERY -->
+<section id="nature" class="gallery-section">
+    <h2 class="gallery-title">Nature Photography</h2>
+
+    <div class="grid">
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470" alt="Nature 1">
+        <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e" alt="Nature 2">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" alt="Nature 3">
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470" alt="Nature 4">
+    </div>
+</section>
+
+<!-- EVENT PHOTOGRAPHY -->
+<section id="events" class="gallery-section">
+    <h2 class="gallery-title">Event Photography</h2>
+
+    <div class="grid">
+        <img src="https://tse3.mm.bing.net/th/id/OIP.6WdXs-XNAoEmjMbiyTTJCAHaE8?pid=Api&P=0&h=180" alt="Event 1">
+        <img src="https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf" alt="Event 2">
+        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04" alt="Event 3">
+        <img src="https://tse3.mm.bing.net/th/id/OIP.Pu-SWDhWFum76HSVcy2qUAHaE8?pid=Api&P=0&h=180" alt="Event 4">
+    </div>
+</section>
+
+<!-- BOOKING SECTION -->
+<section id="book">
+    <h2>Book a Photography Session</h2>
+
+    <div class="booking-form">
+        <label>Your Name:</label>
+        <input type="text" id="name">
+
+        <label>Email:</label>
+        <input type="email" id="email">
+
+        <label>Choose Category:</label>
+        <select id="category">
+            <option value="">-- Select Category --</option>
+            <option>Portrait Photography</option>
+            <option>Nature Photography</option>
+            <option>Event Photography</option>
+        </select>
+
+        <label>Preferred Date:</label>
+        <input type="date" id="date">
+
+        <button onclick="bookSession()">Book Session</button>
+    </div>
+
+    <p id="bookingMessage" style="color: green; margin-top: 15px;"></p>
+</section>
+
+<script>
+    function bookSession() {
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let category = document.getElementById("category").value;
+        let date = document.getElementById("date").value;
+
+        if (!name || !email || !category || !date) {
+            alert("Please fill out all fields!");
+            return;
+        }
+
+        document.getElementById("bookingMessage").innerText =
+            "Thank you " + name + "! Your " + category + 
+            " session has been booked for " + date + ". We will contact you via email soon.";
+    }
+</script>
+
+</body>
+</html>
